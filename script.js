@@ -66,6 +66,9 @@ function setOperator(op) {
 function clearDisplay() {
     display.innerHTML = '';
 }
+function deleteLast() {
+    display.innerHTML = display.innerHTML.slice(0, -1);
+}
 
 function evaluate(){
     inputNum = parseFloat(display.innerHTML);

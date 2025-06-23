@@ -8,29 +8,42 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="calculator">
-        <div class="top-row">
-            <button value="C" class="clear" onClick="clearDisplay()">C</button>
+    <div class="header">
+        <div class="title">Calculator</div>
+        <a href="" class="github-link" target="https://github.com/Thunder9001/Calculator">Author</a>
+    </div>
+    
+    <div class="container">
+
+        <div class="container-calculator">
             <div id="display"> </div>
+            <div class="row-one">
+                <button class="clear-all" onClick="clearDisplay()">AC</button>
+                <button class="delete" onClick="deleteLast()">DEL</button>
+            </div>
+            <div class="buttons">
+                <button class="digit" onclick="updateDisplay('7')">7</button>
+                <button class="digit" onclick="updateDisplay('8')">8</button>
+                <button class="digit" onclick="updateDisplay('9')">9</button>
+                <button class="operator" onclick="setOperator('/')">/</button>
+                <button class="digit" onclick="updateDisplay('4')">4</button>
+                <button class="digit" onclick="updateDisplay('5')">5</button>
+                <button class="digit" onclick="updateDisplay('6')">6</button>
+                <button class="operator" onclick="setOperator('*')">*</button>
+                <button class="digit" onclick="updateDisplay('1')">1</button>
+                <button class="digit" onclick="updateDisplay('2')">2</button>
+                <button class="digit" onclick="updateDisplay('3')">3</button>
+                <button class="operator" onclick="setOperator('-')">-</button>
+                <button class="digit" onclick="updateDisplay('0')">0</button>
+                <button class="digit" onclick="updateDisplay('.')">.</button>
+                <button class="operator" onclick="setOperator('+')">+</button>
+                <button id="equals">=</button>
+            </div>
         </div>
-        <div class="buttons">
-            <button value="7" class="digit" onclick="updateDisplay('7')">7</button>
-            <button value="8" class="digit" onclick="updateDisplay('8')">8</button>
-            <button value="9" class="digit" onclick="updateDisplay('9')">9</button>
-            <button value="/" class="operator" onclick="setOperator('/')">/</button>
-            <button value="4" class="digit" onclick="updateDisplay('4')">4</button>
-            <button value="5" class="digit" onclick="updateDisplay('5')">5</button>
-            <button value="6" class="digit" onclick="updateDisplay('6')">6</button>
-            <button value="*" class="operator" onclick="setOperator('*')">*</button>
-            <button value="1" class="digit" onclick="updateDisplay('1')">1</button>
-            <button value="2" class="digit" onclick="updateDisplay('2')">2</button>
-            <button value="3" class="digit" onclick="updateDisplay('3')">3</button>
-            <button value="-" class="operator" onclick="setOperator('-')">-</button>
-            <button value="0" class="digit" onclick="updateDisplay('0')">0</button>
-            <button value="." class="digit" onclick="updateDisplay('.')">.</button>
-            <button value="+" class="operator" onclick="setOperator('+')">+</button>
-            <button value="+" id="equals">=</button>
-        </div>
+    </div>
+    <div class="footer">
+        <div class="version">Version 1.0</div>
+        <div class="date">June 2025</div>
     </div>
 </body>
 </html>
