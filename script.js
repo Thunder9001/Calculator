@@ -1,5 +1,6 @@
 const display = document.getElementById('display');
 const equButton = document.querySelector('#equals');
+const dotbutton = document.querySelector('#dot')
 let evalFlag = false;
 let inputFlag = false;
 let inputNum = 0;
@@ -49,28 +50,29 @@ function operate(op, a, b) {
 // Display update and clear functions.
 function updateDisplay(digit) {
     if (inputFlag) clearDisplay();
-    if (evalFlag) clearAll();
+    if (evalFlag) clearAll(); 
     display.innerHTML += digit;
-    console.log("Enter")
+    if (digit == '.') dotbutton.disabled = true;
 }
-
 function clearDisplay() {
     display.innerHTML = '';
+    dotbutton.disabled = false;
     inputFlag = false;
 }
-
 function resetNum() {
     inputNum = 0;
     result = 0;
     num2 = '';
     operator = '';
 }
-
 function clearAll() {
     clearDisplay();
     resetNum();
 }
-
+function deleteLast() {
+    if (display.innerHTML.slice(-1) == '.') dotbutton.disabled = false;
+    display.innerHTML = display.innerHTML.slice(0, -1);
+}
 
 function setOperator(op) {
     inputNum = parseFloat(display.innerHTML);
@@ -81,28 +83,18 @@ function setOperator(op) {
     }
 }
 
-
-function deleteLast() {
-    display.innerHTML = display.innerHTML.slice(0, -1);
-}
-
-function evaluate(){
-    if(num1 != '' && num2 != '' && operator != '')
+function equate(){
+    if (inputFlag) clearDisplay();
+    else
     {
         inputNum = parseFloat(display.innerHTML);
         num2 = inputNum;
-        display.innerHTML = result;
-        console.log(`Num1: ${num1}, Num2: ${num2}, Operator: ${operator}`);
-        result = operate(operator, num1, num2);
-        num1 = result; // Update num1 to the result for subsequent operations
-    }   
+        if(num1 != '' && num2 != '' && operator != '')
+            {
+                display.innerHTML = result;
+                console.log(`Num1: ${num1}, Num2: ${num2}, Operator: ${operator}, Result: ${result}`);
+                result = operate(operator, num1, num2);
+                num1 = result; // Update num1 to the result for subsequent operations
+            }   
+    }
 }
-
-equButton.addEventListener('click', () => {
-    inputNum = parseFloat(display.innerHTML);
-    num2 = inputNum;
-    result = operate(operator, num1, num2);
-    display.innerHTML = result;
-    console.log(`Num1: ${num1}, Num2: ${num2}, Operator: ${operator}, Result: ${result}`);
-    evalFlag = true;
-});

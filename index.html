@@ -17,8 +17,8 @@
         <div class="container-calculator">
             <div id="display"> </div>
             <div class="row-one">
-                <button class="clear-all" onClick="clearAll()">AC</button>
-                <button class="delete" onClick="deleteLast()">DEL</button>
+                <button class="clear-all" onclick="clearAll()">AC</button>
+                <button class="delete" onclick="deleteLast()">DEL</button>
             </div>
             <div class="button-row">
                 <button class="digit" onclick="updateDisplay('7')">7</button>
@@ -34,9 +34,9 @@
                 <button class="digit" onclick="updateDisplay('3')">3</button>
                 <button class="operator" onclick="setOperator('-')">-</button>
                 <button class="digit" onclick="updateDisplay('0')">0</button>
-                <button class="digit" onclick="updateDisplay('.')">.</button>
+                <button id="dot" class="digit" onclick="updateDisplay('.')">.</button>
                 <button class="operator" onclick="setOperator('+')">+</button>
-                <button id="equals">=</button>
+                <button id="equals" onclick="equate()">=</button>
             </div>
         </div>
     </div>
