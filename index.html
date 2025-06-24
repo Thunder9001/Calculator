@@ -17,10 +17,13 @@
         <div class="container-calculator">
             <div id="display"> </div>
             <div class="row-one">
-                <button class="clear-all" onclick="clearAll()">AC</button>
-                <button class="delete" onclick="deleteLast()">DEL</button>
+                <div class="logo">T9001</div>
+                <div class="del-buttons">
+                    <button class="clear-all" onclick="clearAll()">AC</button>
+                    <button class="delete" onclick="deleteLast()">DEL</button>
+                </div>
             </div>
-            <div class="button-row">
+            <div class="button-grid">
                 <button class="digit" onclick="updateDisplay('7')">7</button>
                 <button class="digit" onclick="updateDisplay('8')">8</button>
                 <button class="digit" onclick="updateDisplay('9')">9</button>

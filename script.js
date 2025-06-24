@@ -42,7 +42,6 @@ function operate(op, a, b) {
         case '/':
             return divide(a, b);
         default:
-            console.log(operator)
             throw new Error("Invalid operator");
     }
 }
@@ -61,7 +60,6 @@ function clearDisplay() {
 }
 function resetNum() {
     inputNum = 0;
-    result = 0;
     num2 = '';
     operator = '';
 }
@@ -91,10 +89,10 @@ function equate(){
         num2 = inputNum;
         if(num1 != '' && num2 != '' && operator != '')
             {
-                display.innerHTML = result;
-                console.log(`Num1: ${num1}, Num2: ${num2}, Operator: ${operator}, Result: ${result}`);
                 result = operate(operator, num1, num2);
                 num1 = result; // Update num1 to the result for subsequent operations
+                display.innerHTML = result;
+                console.log(`Num1: ${num1}, Num2: ${num2}, Operator: ${operator}, Result: ${result}`);
             }   
     }
 }
