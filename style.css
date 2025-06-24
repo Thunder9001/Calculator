@@ -6,6 +6,7 @@ body {
     padding: 0px;
     margin: 0px;
     flex-direction: column;
+    height: 100vh
 }
 
 .header {
@@ -39,7 +40,6 @@ a {
     background-color: #ccc;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     gap: 16px;
 }
