@@ -1,7 +1,8 @@
 const display = document.getElementById('display');
 const equButton = document.querySelector('#equals');
+let evalFlag = false;
+let inputFlag = false;
 let inputNum = 0;
-let intputFlag = false;
 let result = 0;
 let num1 = '';
 let num2 = '';
@@ -21,8 +22,11 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
+        display.innerHTML = "Cannot divide by zero";
+        inputFlag = true;
         throw new Error("Cannot divide by zero");
     }
+    
     return Math.round((a / b + Number.EPSILON) * 1000) / 1000; // Round to 3 decimal places
 }
 
@@ -44,12 +48,10 @@ function operate(op, a, b) {
 
 // Display update and clear functions.
 function updateDisplay(digit) {
-    if (inputFlag)
-    {
-        clearDisplay();
-        inputFlag = false;
-    }
+    if (inputFlag) clearDisplay();
+    if (evalFlag) clearAll();
     display.innerHTML += digit;
+    console.log("Enter")
 }
 
 function clearDisplay() {
@@ -102,4 +104,5 @@ equButton.addEventListener('click', () => {
     result = operate(operator, num1, num2);
     display.innerHTML = result;
     console.log(`Num1: ${num1}, Num2: ${num2}, Operator: ${operator}, Result: ${result}`);
+    evalFlag = true;
 });
