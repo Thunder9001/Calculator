@@ -92,7 +92,6 @@ function equate(){
                 result = operate(operator, num1, num2);
                 num1 = result; // Update num1 to the result for subsequent operations
                 display.innerHTML = result;
-                console.log(`Num1: ${num1}, Num2: ${num2}, Operator: ${operator}, Result: ${result}`);
             }   
     }
 }
